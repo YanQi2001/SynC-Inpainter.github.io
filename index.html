@@ -10,14 +10,11 @@
 <body>
     <header>
         <!-- 论文标题 -->
-        <h1>你的研究论文完整标题</h1>
+        <h1>Semantically Aligned Video Inpainting through Dual-Path Attention and Multimodal Captioning</h1>
         <!-- 作者列表 -->
-        <p class="authors">作者 A<sup>1</sup>, 作者 B<sup>1,2</sup>, ...</p>
+        <p class="authors">Anonymous Authors ...</p>
         <!-- 作者单位/机构 (可选) -->
-        <p class="affiliations">
-            <sup>1</sup> 单位名称 A<br>
-            <sup>2</sup> 单位名称 B
-        </p>
+
     </header>
 
     <main>
@@ -36,19 +33,29 @@
         <!-- 演示/概述 (Demo/Overview) -->
         <section id="demo">
             <h2>Demo / Overview</h2>
-            <!-- 放置演示视频或图片 -->
-            <!-- 如果是 YouTube 视频，使用 iframe 嵌入 -->
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/你的YouTube视频ID"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                </iframe>
+
+            <!-- 新增：视频容器，用于并排放置两个视频 -->
+            <div class="video-gallery">
+                <!-- 第一个视频 -->
+                <video controls loop muted playsinline>
+                    <!-- 使用 <source> 标签指定视频文件路径和类型 -->
+                    <source src="SynC-Inpainter/videos/concat1/valid-sample-01.mp4" type="video/mp4">
+                    <!-- 如果有其他格式的视频文件（如 .webm），可以添加更多 <source> 标签 -->
+                    <!-- <source src="SynC-Inpainter/videos/video1.webm" type="video/webm"> -->
+                    您的浏览器不支持 HTML5 video 标签。
+                </video>
+
+                <!-- 第二个视频 -->
+                <video controls loop muted playsinline>
+                    <source src="SynC-Inpainter/videos/concat1/valid-sample-02.mp4" type="video/mp4">
+                    <!-- <source src="SynC-Inpainter/videos/video2.webm" type="video/webm"> -->
+                    您的浏览器不支持 HTML5 video 标签。
+                </video>
             </div>
-            <!-- 如果是图片，使用 img 标签 -->
-            <!-- <img src="images/demo-image.gif" alt="演示图片" class="demo-image"> -->
+            <!-- 结束：视频容器 -->
+
             <p>
-                对演示视频或图片进行简要说明。例如：这段视频展示了我们的方法在 XXX 任务上的效果。
+                对演示视频进行简要说明。例如：左侧视频展示了原始视频，右侧视频展示了我们的方法修复后的结果。
             </p>
         </section>
 
