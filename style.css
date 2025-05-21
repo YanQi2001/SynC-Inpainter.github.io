@@ -1,3 +1,5 @@
+/* 以下是你的原有 CSS，与修改的 CSS 合并使用 */
+
 /* 重置一些默认样式 */
 body {
     margin: 0;
@@ -92,26 +94,6 @@ section#citation code {
     display: block; /* 让 code 块独占一行 */
 }
 
-/* 演示视频容器样式 */
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 比例 */
-    height: 0;
-    overflow: hidden;
-    margin-bottom: 20px;
-    background-color: #000; /* 视频加载前显示黑色背景 */
-}
-
-.video-container iframe,
-.video-container object,
-.video-container embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
 /* 演示图片样式 (如果使用图片) */
 .demo-image {
     max-width: 100%; /* 图片最大宽度为其容器的宽度 */
@@ -135,6 +117,33 @@ footer {
     font-size: 0.9em;
     color: #666;
 }
+
+/* 视频画廊容器 */
+.video-gallery {
+    display: flex; /* 启用 Flexbox 布局 */
+    justify-content: center; /* 主轴居中（水平居中） */
+    align-items: flex-start; /* 交叉轴顶部对齐（垂直方向） */
+    gap: 20px; /* 设置视频之间的间距 */
+    margin-bottom: 20px; /* 为每个视频画廊容器添加底部外边距 */
+    /* 可以根据需要限制 video-gallery 的最大宽度，并居中 */
+    /* max-width: 960px; /* 例如，与 main 的最大宽度一致 */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+}
+
+/* 视频元素样式 */
+.video-gallery video {
+    /* --- 修改点 --- */
+    /* 直接指定固定的长宽，这可能会导致视频变形 */
+    width: 400px;  /* 设置你想要的目标宽度 */
+    height: 200px; /* 设置你想要的目标高度 */
+    /* --- 修改点结束 --- */
+
+    display: block; /* 使 video 成为块级元素 */
+    /* 可选：添加边框 */
+    /* border: 1px solid #ddd; */
+}
+
 
 /* 简单响应式调整 */
 @media (max-width: 768px) {
@@ -170,5 +179,22 @@ footer {
 
     section#citation pre {
         padding: 10px;
+    }
+
+    /* 响应式调整视频容器 */
+    .video-gallery {
+        flex-direction: column; /* 在小屏幕上改为垂直堆叠 */
+        gap: 10px; /* 垂直间距 */
+    }
+
+    .video-gallery video {
+        /* 在小屏幕上，如果仍然想保持固定尺寸，则保留 width 和 height */
+        /* 如果想让视频宽度占满容器，则使用 width: 100%; 并保持 height: auto; */
+        width: 100%; /* 示例：让视频宽度占满容器 */
+        height: auto; /* 示例：高度自动以保持比例，避免变形 */
+
+        /* 或者，如果你在小屏幕上也想强制固定尺寸： */
+        /* width: 300px; /* 例如，在小屏幕上设置一个较小的固定宽度 */
+        /* height: 150px; /* 对应的高度 */
     }
 }
